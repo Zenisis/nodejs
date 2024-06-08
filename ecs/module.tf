@@ -3,7 +3,7 @@
 # ECS Fargate Terraform Module
 
 module "ecs_fargate" {
-  source                   = "/home/zenisis/Hello-world-app/ecs-fargate"
+  source                   = "Hello-world-app/ecs-fargate"
   region                   = "eu-north-1"
   vpc_cidr_block           = "10.1.0.0/16"
   public_subnet1           = "10.1.1.0/24" 
