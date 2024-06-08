@@ -36,7 +36,7 @@ jobs:
     steps:
     - name: Deploy to ECS Fargate
       run: |
-          terraform init
+          terraform init -upgrade
 
           terraform fmt
           
@@ -44,7 +44,7 @@ jobs:
 
           terraform plan
           
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
 
           terraform output
          
