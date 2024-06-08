@@ -39,24 +39,22 @@ jobs:
     steps:
     - name: Deploy to ECS Fargate
       run: |
-          terraform init
+          terraform init -upgrade
 
-           terraform plan
+           
 
           terraform state list
-          terraform state rm aws_ecs_task_definition.td1
-          terraform state rm aws_ecs_cluster.main
-          terraform state rm aws_lb.lb
-          terraform state rm aws_lb_target_group.tg
-          terraform state rm aws_lb_listener.Listener
+          
 
-          terraform init -upgrade
+          terraform init 
 
           
 
           terraform fmt
           
           terraform validate
+
+          terraform plan
 
          
           
