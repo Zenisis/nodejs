@@ -49,7 +49,7 @@ jobs:
           terraform output
          
           
-      working-directory: ./ecs-fargate  
+      working-directory: ./ecs
        
         
          
