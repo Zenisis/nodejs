@@ -49,7 +49,7 @@ jobs:
           terraform output
          
           
-      working-directory: ./ecs-module
+      working-directory: ./ecs
        
         
          
