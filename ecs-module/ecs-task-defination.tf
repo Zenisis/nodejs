@@ -1,5 +1,5 @@
 resource "aws_ecs_task_definition" "td1" {
-  family                = "docker1"
+  family                = "dock1"
   requires_compatibilities = [ "FARGATE" ]
   execution_role_arn = aws_iam_role.iam-role.arn
   network_mode = "awsvpc"
