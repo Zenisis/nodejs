@@ -1,6 +1,6 @@
 
 resource "aws_ecs_cluster" "main" {
-  name = var.ecs_cluster_name
+  name = "my-cluster'
   tags = {
     Name= "white_collor"
   }
