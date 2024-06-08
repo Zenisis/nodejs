@@ -10,5 +10,5 @@
 
 provider "aws" {
   # Configuration options
-  region = var.region
+  region = us-east-1
 }

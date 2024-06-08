@@ -1,29 +1,29 @@
 # vpc
-resource "aws_vpc" "master" {
-    cidr_block = var.vpc_cidr_block
+resource "aws_vpc" "master2" {
+    cidr_block = "10.0.0.0/16"
   
 }
 
 resource "aws_subnet" "public" {
   
-  vpc_id            = aws_vpc.master.id
+  vpc_id            = aws_vpc.master2.id
   
-  cidr_block        = var.public_subnet1
-  availability_zone = var.availability_zones[0]
+  cidr_block        =  "10.0.1.0/24"
+  availability_zone = "us-east-1a"
 
 }
 
 
 resource "aws_subnet" "public2" {
-  vpc_id     = aws_vpc.master.id
-  cidr_block = var.public_subnet2
-  availability_zone = var.availability_zones[1]
+  vpc_id     = aws_vpc.master2.id
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "us-east-1b"
 
  
 }
 
 resource "aws_route_table" "max" {
-  vpc_id = aws_vpc.master.id
+  vpc_id = aws_vpc.master2.id
   route  {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.my_igw.id
@@ -47,7 +47,7 @@ resource "aws_route_table_association" "max2"{
 
 
 resource "aws_internet_gateway" "my_igw" {
-  vpc_id =  aws_vpc.master.id
+  vpc_id =  aws_vpc.master2.id
   
 }
 

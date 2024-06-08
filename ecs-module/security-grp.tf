@@ -1,7 +1,7 @@
 #SECURITY-GRP
-resource "aws_security_group" "advance_sec" {
+resource "aws_security_group" "new-sg" {
   name = "advance_sec"
-  vpc_id = aws_vpc.master.id
+  vpc_id = aws_vpc.master2.id
 
   dynamic "ingress" {
     for_each = [0, 22, 443, 80, 8080, 8000, 8001, 8005, 8004, -1]

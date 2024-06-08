@@ -3,7 +3,7 @@ resource "aws_lb" "lb" {
   name               = "My-lb"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.advance_sec.id]
+  security_groups    = [aws_security_group.new-sg.id]
   subnets            = [aws_subnet.public.id,aws_subnet.public2.id]
   tags = {
     Name = "app1"

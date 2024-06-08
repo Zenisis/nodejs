@@ -1,22 +1,22 @@
-resource "aws_ecs_task_definition" "td" {
-  family                = "docker"
+resource "aws_ecs_task_definition" "td1" {
+  family                = "docker1"
   requires_compatibilities = [ "FARGATE" ]
   execution_role_arn = aws_iam_role.iam-role.arn
   network_mode = "awsvpc"
-  cpu = var.cpu
-  memory = var.memory
+  cpu = 1024
+  memory = 2048
   container_definitions = jsonencode([
     {
-      name      =  var.container_name
-      image     = var.container_image
-      cpu       = var.cpu
-      memory    = var.memory
+      name      =  "main-container"
+      image     = "kartik2311/hello-world:latest"
+      cpu       = 1024
+      memory    = 2048
       essential = true
       portMappings = [
         {
-          containerPort = var.container_port
+          containerPort = 80
 
-          hostPort      = var.container_port
+          hostPort      = 80
         }
       ]
 
@@ -28,7 +28,7 @@ resource "aws_ecs_task_definition" "td" {
 }
 
 data "aws_ecs_task_definition" "TD" {
-  task_definition = aws_ecs_task_definition.td.family
+  task_definition = aws_ecs_task_definition.td1.family
 }
 
 
