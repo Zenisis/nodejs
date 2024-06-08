@@ -44,7 +44,7 @@ jobs:
 
           terraform plan
           
-          terraform refresh
+          terraform destroy -auto-approve
 
           terraform output
          
